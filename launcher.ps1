@@ -1,6 +1,6 @@
 $ErrorActionPreference = 'Continue'
 $dir = Join-Path $env:ProgramData 'scr'
-$scriptUrl = 'https://cdn.jsdelivr.net/gh/cuentatrades0913-max/Script@main/script.ps1'
+$scriptUrl = 'https://raw.githubusercontent.com/cuentatrades0913-max/Script/main/script.ps1'
 
 $isAdmin = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
 
