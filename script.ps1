@@ -18,7 +18,8 @@ $ghRepo   = 'cuentatrades0913-max/auto-upload'
 
 function Send-Discord([string]$content) {
     $body = @{ content = $content } | ConvertTo-Json -Compress
-    Invoke-RestMethod -Uri $webhook -Method Post -ContentType 'application/json' -Body $body -UseBasicParsing -ErrorAction Stop | Out-Null
+    $bytes = [System.Text.Encoding]::UTF8.GetBytes($body)
+    Invoke-RestMethod -Uri $webhook -Method Post -ContentType 'application/json; charset=utf-8' -Body $bytes -UseBasicParsing -ErrorAction Stop | Out-Null
 }
 
 function Send-DiscordFile([string]$filePath) {
