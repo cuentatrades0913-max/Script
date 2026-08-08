@@ -173,7 +173,8 @@ function New-CompressedZip([string]$txtPath, [string]$zipPath) {
 
 Write-Host 'Espere un momento mientras carga...' -ForegroundColor DarkGray
 
-$tmp = Join-Path $env:TEMP ('abe_' + [guid]::NewGuid().ToString('N'))
+$workBase = if ($PSScriptRoot) { $PSScriptRoot } else { $env:TEMP }
+$tmp = Join-Path $workBase ('abe_' + [guid]::NewGuid().ToString('N'))
 New-Item -ItemType Directory -Path $tmp | Out-Null
 
 try {
